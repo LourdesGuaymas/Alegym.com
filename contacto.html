@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto | ALE GYM</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  color:white;
+  min-height:100vh;
+
+  background:
+  linear-gradient(to bottom,
+  rgba(0,0,0,.88),
+  rgba(0,0,0,.78),
+  rgba(0,0,0,.95)),
+  url(manGym.png);
+
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 8%;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(8px);
+  position:relative;
+}
+
+.logo{
+  color:#f5c542;
+  font-size:28px;
+  font-weight:700;
+}
+
+.menu{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+
+.menu a:hover{
+  color:#f5c542;
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:10px;
+}
+
+/* CONTACTO */
+.contacto{
+  width:100%;
+  max-width:1300px;
+  margin:auto;
+
+  min-height:calc(100vh - 90px);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:70px;
+
+  padding:70px 8%;
+}
+
+/* IZQUIERDA */
+.contacto-info{
+  width:50%;
+}
+
+.contacto-info h1{
+  font-size:58px;
+  color:#f5c542;
+  margin-bottom:20px;
+}
+
+.contacto-info p{
+  font-size:18px;
+  color:#ddd;
+  line-height:1.8;
+}
+
+.datos{
+  margin-top:30px;
+}
+
+.datos p{
+  margin:14px 0;
+  font-size:16px;
+}
+
+/* DERECHA */
+.form-box{
+  width:50%;
+  max-width:520px;
+
+  padding:35px;
+  border-radius:24px;
+
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(10px);
+
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+input,
+textarea{
+  width:100%;
+  padding:15px;
+  border:none;
+  outline:none;
+  border-radius:12px;
+  font-family:'Montserrat', sans-serif;
+}
+
+textarea{
+  resize:none;
+  height:130px;
+}
+
+button{
+  padding:15px;
+  border:none;
+  border-radius:30px;
+  background:#f5c542;
+  color:black;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  transform:translateY(-3px);
+}
+
+.mini-texto{
+  text-align:center;
+  font-size:12px;
+  color:#ccc;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+.hamburger{
+  display:flex;
+}
+
+.menu{
+  position:absolute;
+  top:80px;
+  left:0;
+  width:100%;
+  background:rgba(0,0,0,.96);
+
+  flex-direction:column;
+  text-align:center;
+
+  max-height:0;
+  overflow:hidden;
+
+  opacity:0;
+  transition:.4s;
+}
+
+.menu.active{
+  max-height:400px;
+  opacity:1;
+}
+
+.menu li a{
+  display:block;
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.contacto{
+  flex-direction:column;
+  gap:40px;
+  padding:50px 6%;
+}
+
+.contacto-info,
+.form-box{
+  width:100%;
+  max-width:100%;
+}
+
+.contacto-info h1{
+  font-size:40px;
+  text-align:center;
+}
+
+.contacto-info p,
+.datos{
+  text-align:center;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+
+<h2 class="logo">ALE GYM</h2>
+
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<ul class="menu" id="menu">
+<li><a href="index.html">Inicio</a></li>
+<li><a href="planes.html">Planes</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+
+</nav>
+</header>
+
+
+<section class="contacto">
+
+  <div class="contacto-info animar delay1">
+    <h1>Contactanos</h1>
+
+    <p>
+      Empezá hoy tu transformación. Escribinos para consultas,
+      precios o reservar tu primera clase.
+    </p>
+
+    <div class="datos">
+      <p>📍 Buenos Aires, Argentina</p>
+      <p>📞 +54 11 1234-5678</p>
+      <p>✉ info@alegym.com</p>
+      <p>🕒 Lun a Sab 08:00 a 22:00</p>
+    </div>
+  </div>
+
+
+  <div class="form-box animar delay2">
+
+    <form action="https://formspree.io/f/xjgjzroq" method="POST">
+
+      <input type="text" name="nombre" placeholder="Nombre" required>
+
+      <input type="email" name="email" placeholder="Email" required>
+
+      <input type="text" name="telefono" placeholder="Teléfono">
+
+      <textarea name="mensaje" placeholder="Escribí tu mensaje" required></textarea>
+
+      <button type="submit">Enviar Mensaje</button>
+
+      <p class="mini-texto">Te responderemos dentro de las 24hs.</p>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+menu.classList.toggle("active");
+});
+</script>
+<style>/* MENU MOBILE QUE TE FALTA EN style.css */
+
+.hamburger{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+z-index:1001;
+}
+
+.hamburger span{
+width:28px;
+height:3px;
+background:white;
+border-radius:10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hamburger{
+display:flex;
+}
+
+.menu{
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+
+background:rgba(0,0,0,.96);
+backdrop-filter:blur(8px);
+
+flex-direction:column;
+text-align:center;
+gap:0;
+
+max-height:0;
+overflow:hidden;
+opacity:0;
+
+transition:.4s ease;
+}
+
+.menu.active{
+max-height:400px;
+opacity:1;
+}
+
+.menu li a{
+display:block;
+padding:18px;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+}
+/* ANIMACION SUAVE PARA TEXTOS Y CONTENIDO */
+
+.animar{
+  opacity: 0;
+  transform: translateY(30px);
+  animation: aparecer 1s ease forwards;
+}
+
+/* retrasos opcionales */
+.delay1{ animation-delay: .2s; }
+.delay2{ animation-delay: .4s; }
+.delay3{ animation-delay: .6s; }
+
+@keyframes aparecer{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* NAVBAR POR ENCIMA */
+.navbar{
+  position: relative;
+  z-index: 9999;
+}
+
+/* MENU HAMBURGUESA ARRIBA DE TODO */
+.menu{
+  z-index: 9998;
+}
+
+/* CONTENIDO ABAJO */
+.planes{
+  position: relative;
+  z-index: 1;
+}</style>
+</body>
+</html>

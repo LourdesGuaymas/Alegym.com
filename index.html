@@ -1,0 +1,451 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALE GYM</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================
+RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  color:white;
+  background:
+  linear-gradient(to bottom,
+  rgba(0,0,0,.55) 0%,
+  rgba(0,0,0,.75) 35%,
+  rgba(0,0,0,.92) 70%,
+  rgba(0,0,0,1) 100%),
+  url(manGym.png);
+
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+/* =========================
+NAVBAR
+========================= */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 8%;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(8px);
+  position:relative;
+  z-index:1000;
+}
+
+.logo{
+  color:#f5c542;
+  font-size:28px;
+  font-weight:700;
+}
+
+.menu{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+.menu a{
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  transition:.3s;
+}
+
+.menu a:hover{
+  color:#f5c542;
+}
+
+/* =========================
+HAMBURGER
+========================= */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:10px;
+}
+
+/* =========================
+HERO
+========================= */
+.hero{
+  min-height:92vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0 8%;
+  text-align:center;
+}
+
+.hero-text{
+  max-width:700px;
+}
+
+.hero-text h1{
+  font-size:68px;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.hero-text p{
+  font-size:18px;
+  color:#ddd;
+  line-height:1.7;
+  margin-bottom:35px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:700;
+  background:#f5c542;
+  color:black;
+}
+
+.btn2{
+  background:transparent;
+  color:#f5c542;
+  border:2px solid #f5c542;
+}
+
+/* =========================
+SECCIONES OSCURAS
+========================= */
+.about,
+.services{
+  padding:90px 8%;
+  background:rgba(0,0,0,.82);
+}
+
+/* =========================
+ABOUT
+========================= */
+.about-box{
+  max-width:1200px;
+  margin:auto;
+}
+
+.about h2{
+  text-align:center;
+  font-size:42px;
+  color:#f5c542;
+  margin-bottom:20px;
+}
+
+.about-box p{
+  text-align:center;
+  color:#ddd;
+  line-height:1.8;
+  max-width:800px;
+  margin:auto;
+}
+
+.about-cards{
+  margin-top:50px;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.card{
+  width:250px;
+  padding:35px;
+  text-align:center;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(8px);
+}
+
+.card h3{
+  font-size:38px;
+  color:#f5c542;
+  margin-bottom:10px;
+}
+
+/* =========================
+SERVICIOS
+========================= */
+.services h2{
+  text-align:center;
+  font-size:42px;
+  color:#f5c542;
+  margin-bottom:50px;
+}
+
+.service-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.service-box{
+  width:280px;
+  padding:35px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  text-align:center;
+  transition:.3s;
+}
+
+.service-box:hover{
+  transform:translateY(-8px);
+}
+
+.service-box h3{
+  color:#f5c542;
+  margin-bottom:14px;
+}
+
+.service-box p{
+  color:#ddd;
+  line-height:1.7;
+}
+
+/* =========================
+ANIMACION
+========================= */
+.animar{
+  opacity:0;
+  transform:translateY(35px);
+  animation:subir .9s ease forwards;
+}
+
+.delay3{
+  animation-delay:.3s;
+}
+
+@keyframes subir{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+@media(max-width:768px){
+
+.hamburger{
+  display:flex;
+}
+
+.menu{
+  position:absolute;
+  top:78px;
+  left:0;
+  width:100%;
+  background:rgba(0,0,0,.96);
+  backdrop-filter:blur(8px);
+
+  flex-direction:column;
+  text-align:center;
+  gap:0;
+
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+
+  transition:.4s;
+}
+
+.menu.active{
+  max-height:400px;
+  opacity:1;
+}
+
+.menu li a{
+  display:block;
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.hero-text h1{
+  font-size:42px;
+}
+
+.hero-text p{
+  font-size:16px;
+}
+
+.card,
+.service-box{
+  width:100%;
+}
+
+.about h2,
+.services h2{
+  font-size:34px;
+}
+
+}
+/* ANIMACION SUAVE PARA TEXTOS Y CONTENIDO */
+
+.animar{
+  opacity: 0;
+  transform: translateY(30px);
+  animation: aparecer 1s ease forwards;
+}
+
+/* retrasos opcionales */
+.delay1{ animation-delay: .2s; }
+.delay2{ animation-delay: .4s; }
+.delay3{ animation-delay: .6s; }
+
+@keyframes aparecer{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+
+<h2 class="logo">ALE GYM</h2>
+
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<ul class="menu" id="menu">
+<li><a href="index.html">Inicio</a></li>
+<li><a href="planes.html">Planes</a></li>
+<li><a href="contacto.html">Contacto</a></li>
+</ul>
+
+</nav>
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1 class="animar delay1">TRANSFORMÁ<br>TU CUERPO</h1>
+
+<p class="animar delay2">
+Entrená con coaches profesionales, máquinas premium
+y resultados reales.
+</p>
+
+<div class="buttons animar delay3">
+<a href="contacto.html" class="btn">Unirme</a>
+<a href="planes.html" class="btn btn2">Ver Planes</a>
+</div>
+
+</div>
+
+</section>
+<section class="about">
+<div class="about-box">
+
+<h2>¿Por qué elegir ALE GYM?</h2>
+
+<p>
+Contamos con máquinas modernas, entrenadores capacitados
+y un ambiente ideal para lograr tus objetivos.
+</p>
+
+<div class="about-cards">
+
+<div class="card">
+<h3>+500</h3>
+<p>Socios activos</p>
+</div>
+
+<div class="card">
+<h3>24/7</h3>
+<p>Acceso disponible</p>
+</div>
+
+<div class="card">
+<h3>100%</h3>
+<p>Motivación real</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="services">
+
+<h2>Nuestras Clases</h2>
+
+<div class="service-container">
+
+<div class="service-box">
+<h3>Musculación</h3>
+<p>Zona equipada para fuerza y ganancia muscular.</p>
+</div>
+
+<div class="service-box">
+<h3>Cross Training</h3>
+<p>Entrenamientos intensos para resistencia y potencia.</p>
+</div>
+
+<div class="service-box">
+<h3>Cardio</h3>
+<p>Cintas, bicicletas y máquinas premium.</p>
+</div>
+
+</div>
+
+</section>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click",()=>{
+menu.classList.toggle("active");
+});
+</script>
+
+</body>
+</html>

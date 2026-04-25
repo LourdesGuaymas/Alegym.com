@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <header>
+  <nav class="navbar">
+
+    <h2 class="logo">ALE GYM</h2>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+
+  </nav>
+</header>
+    <!-- SECCION PLANES -->
+
+<section class="planes">
+
+<div class="animar delay1">
+
+<h2>Elegí Tu Plan Ideal</h2>
+
+<p class="subtitulo">
+Entrená a tu ritmo con planes pensados para cada objetivo.
+</p>
+
+<div class="planes-container">
+
+<div class="plan-card">
+<h3>Básico</h3>
+<span class="precio">$18.000</span>
+
+<ul>
+<li>✔ Acceso al gimnasio</li>
+<li>✔ Sala de musculación</li>
+<li>✔ Vestuarios</li>
+<li>✔ Horario libre</li>
+</ul>
+
+<a href="#" class="btn-plan">Unirme</a>
+</div>
+
+<div class="plan-card destacado">
+<span class="popular">MÁS ELEGIDO</span>
+
+<h3>Pro</h3>
+<span class="precio">$25.000</span>
+
+<ul>
+<li>✔ Todo lo del Básico</li>
+<li>✔ Rutina personalizada</li>
+<li>✔ Seguimiento mensual</li>
+<li>✔ Asesoramiento inicial</li>
+</ul>
+
+<a href="#" class="btn-plan">Unirme</a>
+</div>
+
+<div class="plan-card">
+<h3>Premium</h3>
+<span class="precio">$35.000</span>
+
+<ul>
+<li>✔ Todo incluido</li>
+<li>✔ Clases grupales</li>
+<li>✔ Entrenador personal</li>
+<li>✔ Atención prioritaria</li>
+</ul>
+
+<a href="#" class="btn-plan">Unirme</a>
+</div>
+
+</div>
+</div>
+
+</section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", function () {
+  menu.classList.toggle("active");
+});
+
+});
+</script>
+<style>/* MENU MOBILE QUE TE FALTA EN style.css */
+
+.hamburger{
+display:none;
+flex-direction:column;
+gap:6px;
+cursor:pointer;
+z-index:1001;
+}
+
+.hamburger span{
+width:28px;
+height:3px;
+background:white;
+border-radius:10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hamburger{
+display:flex;
+}
+
+.menu{
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+
+background:rgba(0,0,0,.96);
+backdrop-filter:blur(8px);
+
+flex-direction:column;
+text-align:center;
+gap:0;
+
+max-height:0;
+overflow:hidden;
+opacity:0;
+
+transition:.4s ease;
+}
+
+.menu.active{
+max-height:400px;
+opacity:1;
+}
+
+.menu li a{
+display:block;
+padding:18px;
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+}
+/* ANIMACION SUAVE PARA TEXTOS Y CONTENIDO */
+
+.animar{
+  opacity: 0;
+  transform: translateY(30px);
+  animation: aparecer 1s ease forwards;
+}
+
+/* retrasos opcionales */
+.delay1{ animation-delay: .2s; }
+.delay2{ animation-delay: .4s; }
+.delay3{ animation-delay: .6s; }
+
+@keyframes aparecer{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* NAVBAR POR ENCIMA */
+.navbar{
+  position: relative;
+  z-index: 9999;
+}
+
+/* MENU HAMBURGUESA ARRIBA DE TODO */
+.menu{
+  z-index: 9998;
+}
+
+/* CONTENIDO ABAJO */
+.planes{
+  position: relative;
+  z-index: 1;
+}</style>
+</body>
+</html>

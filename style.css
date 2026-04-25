@@ -1,0 +1,661 @@
+/* ===================================================
+RESET
+=================================================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  color:white;
+
+  background:
+  linear-gradient(to bottom,
+  rgba(0,0,0,.90) 0%,
+  rgba(0,0,0,.75) 25%,
+  rgba(0,0,0,.85) 55%,
+  rgba(0,0,0,1) 100%),
+  url(manGym.png);
+
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+/* ===================================================
+NAVBAR
+=================================================== */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 8%;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
+  position:relative;
+}
+
+.logo{
+  color:#f5c542;
+  font-size:28px;
+  font-weight:700;
+}
+
+.menu{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:1px;
+  transition:.3s;
+}
+
+.menu a:hover{
+  color:#f5c542;
+}
+
+/* ===================================================
+HAMBURGER
+=================================================== */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:10px;
+}
+
+/* ===================================================
+HERO
+=================================================== */
+.hero{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  padding:0 8%;
+}
+
+.hero-text{
+  max-width:520px;
+}
+
+.hero-text h1{
+  font-size:65px;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.hero-text p{
+  color:#ddd;
+  font-size:18px;
+  line-height:1.7;
+  margin-bottom:30px;
+}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.3s;
+}
+
+.btn{
+  background:#f5c542;
+  color:black;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.btn2{
+  background:transparent;
+  color:#f5c542;
+  border:2px solid #f5c542;
+}
+
+/* ===================================================
+ABOUT
+=================================================== */
+.about{
+  padding:80px 8%;
+  background:linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.75));
+}
+
+.about-box h2{
+  font-size:40px;
+  color:#f5c542;
+  margin-bottom:20px;
+}
+
+.about-box p{
+  max-width:700px;
+  color:#ddd;
+  line-height:1.8;
+  margin-bottom:40px;
+}
+
+.about-cards{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.card{
+  min-width:200px;
+  padding:30px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(6px);
+}
+
+.card h3{
+  font-size:35px;
+  color:#f5c542;
+  margin-bottom:10px;
+}
+
+/* ===================================================
+SERVICES
+=================================================== */
+.services{
+  padding:80px 8%;
+  text-align:center;
+  background:linear-gradient(to bottom, rgba(0,0,0,.92), rgba(0,0,0,1));
+}
+
+.services h2{
+  font-size:40px;
+  color:#f5c542;
+  margin-bottom:50px;
+}
+
+.service-container{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  flex-wrap:wrap;
+}
+
+.service-box{
+  width:280px;
+  padding:30px;
+  border-radius:18px;
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(5px);
+  transition:.3s;
+}
+
+.service-box:hover{
+  transform:translateY(-10px);
+}
+
+.service-box h3{
+  color:#f5c542;
+  margin-bottom:15px;
+}
+
+.service-box p{
+  color:#ddd;
+  line-height:1.7;
+}
+
+/* ===================================================
+ANIMACION
+=================================================== */
+.animar{
+  opacity:0;
+  transform:translateY(35px);
+  animation:subirSuave .9s ease forwards;
+}
+
+.delay1{animation-delay:.2s;}
+.delay2{animation-delay:.4s;}
+.delay3{animation-delay:.6s;}
+
+@keyframes subirSuave{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===================================================
+RESPONSIVE
+=================================================== */
+@media(max-width:768px){
+
+.hamburger{
+  display:flex;
+}
+
+.menu{
+  position:absolute;
+  top:80px;
+  left:0;
+  width:100%;
+  background:rgba(0,0,0,.95);
+  backdrop-filter:blur(8px);
+
+  flex-direction:column;
+  text-align:center;
+  gap:0;
+
+  max-height:0;
+  overflow:hidden;
+
+  opacity:0;
+  transform:translateY(-15px);
+
+  transition:
+  max-height .55s ease,
+  opacity .45s ease,
+  transform .45s ease;
+}
+
+.menu.active{
+  max-height:400px;
+  opacity:1;
+  transform:translateY(0);
+}
+
+.menu li a{
+  display:block;
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.hero{
+  justify-content:center;
+  text-align:center;
+  padding:60px 6%;
+}
+
+.hero-text h1{
+  font-size:42px;
+}
+
+.hero-text p{
+  font-size:16px;
+}
+
+.buttons{
+  justify-content:center;
+}
+
+.about,
+.services{
+  padding:60px 6%;
+}
+
+.about-box h2,
+.services h2{
+  font-size:32px;
+}
+
+.card,
+.service-box{
+  width:100%;
+}
+
+}/* ===================================================
+RESET
+=================================================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  color:white;
+
+  background:
+  linear-gradient(to bottom,
+  rgba(0,0,0,.90) 0%,
+  rgba(0,0,0,.78) 25%,
+  rgba(0,0,0,.88) 55%,
+  rgba(0,0,0,1) 100%),
+  url(manGym.png);
+
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+/* ===================================================
+NAVBAR
+=================================================== */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 8%;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
+  position:relative;
+}
+
+.logo{
+  color:#f5c542;
+  font-size:28px;
+  font-weight:700;
+}
+
+.menu{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:1px;
+  transition:.3s;
+}
+
+.menu a:hover{
+  color:#f5c542;
+}
+
+/* ===================================================
+HAMBURGER
+=================================================== */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:10px;
+}
+
+/* ===================================================
+PLANES
+=================================================== */
+.planes{
+  min-height:100vh;
+  padding:90px 8%;
+  text-align:center;
+}
+
+.planes h2{
+  font-size:44px;
+  color:#f5c542;
+  margin-bottom:15px;
+}
+
+.subtitulo{
+  color:#ddd;
+  font-size:18px;
+  margin-bottom:55px;
+}
+
+.planes-container{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.plan-card{
+  width:320px;
+  padding:42px 30px;
+  border-radius:22px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(8px);
+  position:relative;
+  transition:.3s;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.plan-card:hover{
+  transform:translateY(-10px);
+}
+
+.plan-card h3{
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.precio{
+  display:block;
+  font-size:38px;
+  color:#f5c542;
+  font-weight:700;
+  margin-bottom:28px;
+}
+
+.plan-card ul{
+  list-style:none;
+  text-align:left;
+  margin-bottom:30px;
+}
+
+.plan-card ul li{
+  margin:13px 0;
+  color:#e7e7e7;
+  line-height:1.6;
+}
+
+.btn-plan{
+  display:inline-block;
+  padding:14px 28px;
+  background:#f5c542;
+  color:black;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.btn-plan:hover{
+  transform:translateY(-3px);
+}
+
+.destacado{
+  border:2px solid #f5c542;
+  transform:scale(1.05);
+}
+
+.destacado:hover{
+  transform:scale(1.05) translateY(-10px);
+}
+
+.popular{
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#f5c542;
+  color:black;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* ===================================================
+RESPONSIVE
+=================================================== */
+@media(max-width:768px){
+
+.hamburger{
+  display:flex;
+}
+
+.menu{
+  position:absolute;
+  top:80px;
+  left:0;
+  width:100%;
+  background:rgba(0,0,0,.95);
+  backdrop-filter:blur(8px);
+
+  flex-direction:column;
+  text-align:center;
+  gap:0;
+
+  max-height:0;
+  overflow:hidden;
+
+  opacity:0;
+  transform:translateY(-15px);
+
+  transition:
+  max-height .55s ease,
+  opacity .45s ease,
+  transform .45s ease;
+}
+
+.menu.active{
+  max-height:400px;
+  opacity:1;
+  transform:translateY(0);
+}
+
+.menu li a{
+  display:block;
+  padding:18px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.planes{
+  padding:60px 6%;
+}
+
+.planes h2{
+  font-size:34px;
+}
+
+.subtitulo{
+  font-size:16px;
+  margin-bottom:40px;
+}
+
+.plan-card{
+  width:100%;
+  max-width:420px;
+}
+
+.destacado{
+  transform:none;
+}
+
+.destacado:hover{
+  transform:translateY(-10px);
+}
+
+}
+/* ===================================================
+RESET
+=================================================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  color:white;
+
+  background:
+  linear-gradient(to bottom,
+  rgba(0,0,0,.90) 0%,
+  rgba(0,0,0,.75) 25%,
+  rgba(0,0,0,.85) 55%,
+  rgba(0,0,0,1) 100%),
+  url(manGym.png);
+
+  background-size:cover;
+  background-position:center top;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+}
+
+/* ===================================================
+NAVBAR
+=================================================== */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 8%;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(6px);
+  position:relative;
+}
+
+.logo{
+  color:#f5c542;
+  font-size:28px;
+  font-weight:700;
+}
+
+.menu{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+.menu a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  letter-spacing:1px;
+  transition:.3s;
+}
+
+.menu a:hover{
+  color:#f5c542;
+}
+
+/* ===================================================
+HAMBURGER
+=================================================== */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:28px;
+  height:3px;
+  background:white;
+  border-radius:10px;
+}
+
